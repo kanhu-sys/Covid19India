@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>NovelCorona</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            margin: 0 auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .image-holder {
+            background-image: url('martin-sanchez-F6LoPfa75tQ-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .image-holder {
+            width: 100%;
+            height: 740px;
+        }
+        
+        .btn {
+            margin-top: 1%;
+            width: 15%;
+            margin-left: 2%;
+            color: white;
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            outline: unset;
+        }
+        
+        .red {
+            color: tomato;
+        }
+        
+        .title {
+            width: 50%;
+            background-color: transparent;
+            color: white;
+            margin-top: 10%;
+            margin-left: 6%;
+            font-size: 30px;
+        }
+        
+        .sec1 {
+            margin: 0 auto;
+            width: 98%;
+            margin-top: 20px;
+            color: #f5f5f5;
+        }
+        
+        .death {
+            float: left;
+            width: 50%;
+            background-color: tomato;
+            text-align: center;
+        }
+        
+        .infect {
+            float: left;
+            width: 50%;
+            background-color: dodgerblue;
+            text-align: center;
+        }
+        
+        .sec1:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .stage-title1 {
+            color: grey;
+            text-align: center;
+            margin-top: 7%;
+        }
+        
+        .stage-title2 {
+            color: grey;
+            text-align: center;
+            margin-top: 5%;
+        }
+        
+        .sec2 {
+            width: 98%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        
+        .stage1,
+        .stage2,
+        .stage3,
+        .stage4 {
+            width: 50%;
+            float: left;
+            background-color: white;
+            padding: 5px;
+            text-align: center;
+            color: grey;
+        }
+        
+        .sec2:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .sec3 {
+            width: 95%;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        
+        .sec3:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border: 1px solid white;
+            box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        th,
+        td {
+            width: 20%;
+            text-align: center;
+            font-size: 15px;
+            color: black;
+            border: 1px solid white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        
+        th {
+            background-color: dodgerblue;
+            font-weight: bold;
+            color: #f5f5f5;
+        }
+        
+        .kanhu {
+            background-color: #333;
+            color: #f5f5f5;
+            font-size: 18pt;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: -20px;
+        }
+        
+        .home {
+            width: 100%;
+            color: #f5f5f5;
+            background-color: #333;
+            border: none;
+            padding: 6px;
+            text-align: center;
+            outline: none;
+            font-weight: bolder;
+            font-size: 12pt;
+        }
+        
+        .homeclick {
+            background-color: #2f4f4f;
+            width: 100%;
+            color: #f5f5f5;
+            border: none;
+            padding: 6px;
+            text-align: center;
+            outline: none;
+            font-weight: bolder;
+            font-size: 16pt;
+        }
+        
+        .homeclick:hover {
+            cursor: pointer;
+            opacity: 0.9;
+            color: #f5f5f5;
+        }
+        
+        .pager1 {
+            font-size: 44px;
+            font-weight: bolder;
+            margin-top: -5%;
+        }
+        
+        .pager2,
+        .pager3,
+        .pager4 {
+            font-size: 32px;
+            font-weight: bolder;
+            line-height: 0.6;
+        }
+        
+        .pager2 {
+            margin-top: -15%;
+        }
+        
+        @media only screen and (max-width:500px) {
+            html,
+            body {
+                margin: 0;
+            }
+            .title {
+                width: 90%;
+                background-color: transparent;
+                color: white;
+                margin-top: 1%;
+                margin-left: 6%;
+                font-size: 14px;
+            }
+            .image-holder {
+                width: auto;
+                height: 250px;
+            }
+            .btn {
+                margin-top: 1%;
+                width: 15%;
+                margin-left: 4%;
+                color: white;
+                font-weight: bold;
+                background-color: transparent;
+                border: none;
+                font-size: 20px;
+                outline: unset;
+            }
+            .red {
+                color: tomato;
+            }
+            .pager1 {
+                font-size: 12pt;
+                font-weight: bolder;
+                position: relative;
+                top: 10px;
+            }
+            .pager2,
+            .pager3,
+            .pager4 {
+                font-size: 10pt;
+                font-weight: bolder;
+            }
+            .pager2 {
+                margin-top: 6%;
+            }
+            .stage-title1 {
+                color: grey;
+                text-align: center;
+                margin-top: 7%;
+                font-size: 9pt;
+            }
+            .stage-title2 {
+                color: grey;
+                text-align: center;
+                margin-top: 5%;
+                font-size: 9pt;
+            }
+            .stage1,
+            .stage2,
+            .stage3,
+            .stage4 {
+                width: 100%;
+                background-color: white;
+                padding: 5px;
+                text-align: center;
+                color: grey;
+            }
+            table {
+                width: 100%;
+                table-layout: fixed;
+                border: 1px solid white;
+                box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.2);
+            }
+            th,
+            td {
+                width: 10%;
+                text-align: center;
+                font-size: 9px;
+                color: #333;
+                border: 1px solid white;
+            }
+            th {
+                color: white;
+            }
+            .home {
+                width: 100%;
+                color: #f5f5f5;
+                background-color: #333;
+                border: none;
+                padding: 6px;
+                text-align: center;
+                outline: none;
+                font-weight: bolder;
+                font-size: 8pt;
+            }
+            .homeclick {
+                background-color: #2f4f4f;
+                width: 100%;
+                color: #f5f5f5;
+                border: none;
+                padding: 6px;
+                text-align: center;
+                outline: none;
+                font-weight: bolder;
+                font-size: 14pt;
+            }
+            .kanhu {
+                background-color: #333;
+                color: #f5f5f5;
+                font-size: 12pt;
+                padding: 20px;
+                text-align: center;
+                position: relative;
+                bottom: -20px;
+            }
+            .st1c,
+            .st2c,
+            .st3c,
+            .st4c {
+                font-size: 10pt;
+            }
+        }
+        
+        #blue {
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body onload="fetch()">
+    <div class="image-holder">
+        <div class="nav">
+            <button class="btn red">LIVE</button>
+        </div>
+        <div class="title">
+            <h1>COVID-19 PANDEMIC</h1>
+            <p class="pager1">(CORONA OUTBREAK)</p>
+        </div>
+        <div class="title">
+            <p class="pager2">#FIGHT TOGETHER</p>
+            <p class="pager3">#STAY HOME</p>
+            <p class="pager4">#STAY SAFE</p>
+            <p class="pager4">#KEEP CALM</p>
+        </div>
+    </div>
+    <div class="stage-title1">
+        <h2>4 STAGES OF CORONA VIRUS TRANSMISSION</h2>
+    </div>
+    <div class="sec2">
+        <div class="stage1">
+            <h3>STAGE 1</h3>
+            <p class="st1c"><span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span>cases are imported from affected countries. In this stage, the virus doesn’t spread locally – cases reported are usually due to the people who have
+                A travel history to an affected country. Stage one sees only these test positive.<span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span></p>
+        </div>
+        <div class="stage2">
+            <h3>STAGE 2</h3>
+            <p class="st2c"><span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span>The virus could be transmitted through contact with affected people. Here, people who have brought the virus into the country transmit it to people
+                they come in contact with, usually friends and family.<span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span></p>
+        </div>
+        <div class="stage3">
+            <h3>STAGE 3</h3>
+            <p class="st3c"><span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span>The third stage is community transmission, when the source of the virus is untraceable, this stage is identified when people who haven’t had travel
+                history to affected place, get diagnosed with the virus.
+                <span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span></p>
+        </div>
+        <div class="stage4">
+            <h3>STAGE 4</h3>
+            <p class="st4c"><span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span>Stage four for a pandemic occurs when the spread of the virus goes out of control and there aremany major clusters of infection all over the country,spread
+                is extremely contagious and difficult to control.<span style="color:red;font-weight:bold;font-size:10pt;font-family:sans-serif;">&quot;</span></p>
+        </div>
+    </div>
+    <div class="stage-title2">
+        <h2>INDIA'S LIVE UPDATES OF CORONA OUTBREAK</h2>
+    </div>
+    <div class="sec3">
+        <table cellpadding="5" cellspacing="0" id="tvall">
+            <tr>
+                <th id="blue">Date & Time</th>
+                <th id="blue">Total Confirmed</th>
+                <th id="blue">Total Active</th>
+                <th id="blue">Total Recovered</th>
+                <th id="blue">Total Deaths</th>
+            </tr>
+        </table>
+    </div>
+    <div class="sec3">
+        <table cellpadding="5" cellspacing="0" id="tval">
+            <tr>
+                <th>SL.NO</th>
+                <th>Date & Time</th>
+                <th>State</th>
+                <th>Confirmed</th>
+                <th>Active</th>
+                <th>Recovered</th>
+                <th>Deaths</th>
+            </tr>
+        </table>
+        <script>
+            function fetch() {
+                $.get("https://api.covid19india.org/data.json",
+                    function(data) {
+                        //console.log(data['Countries'].length);
+                        //console.log(data['Global'].length);
+                        var tval = document.getElementById('tval');
+                        for (var i = 1; i <= (data['statewise'].length) - 1; i++) {
+                            var x = tval.insertRow();
+
+                            x.insertCell(0);
+                            tval.rows[i].cells[0].innerHTML = i;
+                            tval.rows[i].cells[0].style.color = 'dodgerblue';
+
+                            x.insertCell(1);
+                            tval.rows[i].cells[1].innerHTML = data['statewise'][i]['lastupdatedtime'];
+
+                            x.insertCell(2);
+                            tval.rows[i].cells[2].innerHTML = data['statewise'][i]['state'];
+
+                            x.insertCell(3);
+                            tval.rows[i].cells[3].innerHTML = data['statewise'][i]['confirmed'];
+
+                            x.insertCell(4);
+                            tval.rows[i].cells[4].innerHTML = data['statewise'][i]['active'];
+
+                            x.insertCell(5);
+                            tval.rows[i].cells[5].innerHTML = data['statewise'][i]['recovered'];
+
+                            x.insertCell(6);
+                            tval.rows[i].cells[6].innerHTML = data['statewise'][i]['deaths'];
+                        }
+
+                        var tvall = document.getElementById('tvall');
+                        for (var i = 1; i <= (data['statewise'].length) - 37; i++) {
+                            var y = tvall.insertRow();
+
+                            y.insertCell(0);
+                            tvall.rows[i].cells[0].innerHTML = data['statewise'][i - 1]['lastupdatedtime'];
+                            tvall.rows[i].cells[0].style.color = 'tomato';
+
+                            y.insertCell(1);
+                            tvall.rows[i].cells[1].innerHTML = data['statewise'][i - 1]['confirmed'];
+
+                            y.insertCell(2);
+                            tvall.rows[i].cells[2].innerHTML = data['statewise'][i - 1]['active'];
+
+                            y.insertCell(3);
+                            tvall.rows[i].cells[3].innerHTML = data['statewise'][i - 1]['recovered'];
+
+                            y.insertCell(4);
+                            tvall.rows[i].cells[4].innerHTML = data['statewise'][i - 1]['deaths'];
+                        }
+                    }
+                );
+            }
+        </script>
+    </div>
+    <br>
+    <div style="text-align:center;">
+        <img src="coronapos.jpg" alt="Safety From Corona" height="50%" width="80%">
+    </div>
+    <br>
+    <h1 class="kanhu">Designed and Developed By Kanhu Lenka &#128226;</h1>
+    <button class="home" onclick="document.location='novelcorona.php'">Contact Me &nbsp;&nbsp;gmail:kanhulenka678@gmail.com &nbsp;&nbsp;&nbsp;whatsapp:8018698545</button>
+    <button class="homeclick" onclick="document.location='novelcorona.php'">HOME</button>
+</body>
+
+</html>
